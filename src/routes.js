@@ -11,6 +11,8 @@ routes.get('/usuarios', usuarios.listarUsuarios);
 routes.get('/usuarios/:id_usuario', usuarios.obterUsuario);
 // Deletar Usuário
 routes.delete('/usuarios/:id_usuario', usuarios.excluirUsuario);
+// Atualizar Usuário
+routes.put('/usuarios/:id_usuario', usuarios.atualizarUsuario);
 
 
 module.exports = routes;
