@@ -10,7 +10,7 @@ create table if not exists usuarios (
   	primary key (id_usuario)
 );
 
-create table if not exists endereco_usuarios (
+create table if not exists enderecos_usuario (
   	id_endereco_usuario int not null AUTO_INCREMENT,
   	id_usuario int not null,
   	logradouro varchar(255) not null,
