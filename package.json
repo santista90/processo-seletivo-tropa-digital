@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/santista90/processo-seletivo-tropa-digital#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "knex": "^0.95.11",
     "mysql": "^2.18.1",
