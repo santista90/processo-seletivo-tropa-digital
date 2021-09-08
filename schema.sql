@@ -1,7 +1,7 @@
 create database tropadigital;
 
 create table if not exists usuarios (
-	id_usuario int not null,
+	id_usuario int not null AUTO_INCREMENT,
   	nome varchar(255) not null,
   	sobrenome varchar(225) not null,
   	email varchar(255) not null,
@@ -11,7 +11,7 @@ create table if not exists usuarios (
 );
 
 create table if not exists endereco_usuarios (
-  	id_endereco_usuario int not null,
+  	id_endereco_usuario int not null AUTO_INCREMENT,
   	id_usuario int not null,
   	logradouro varchar(255) not null,
   	numero varchar(45) not null, 
