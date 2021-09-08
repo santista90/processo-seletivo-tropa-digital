@@ -50,8 +50,46 @@ const listarUsuarios = async (req, res) => {
     }
 }
 
+const obterUsuario = async (req, res) => {
+    const { id_usuario } = req.params;
+
+    try {
+
+        const usuario = await knex('usuarios').where('id_usuario', '=', id_usuario);
+
+        if(usuario.length === 0){
+            return res.status(400).json("Usuário não encontrado");
+        }
+
+        return res.status(200).json(usuario);
+
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
+const excluirUsuario = async (req, res) => {
+    const { id_usuario } = req.params;
+
+    try {
+
+        const usuario = await knex('usuarios').where('id_usuario', '=', id_usuario).del();
+
+        if(usuario.length === 0){
+            return res.status(400).json("Usuário não encontrado");
+        }
+
+        return res.status(200).json("Usuário Excluido com sucesso");
+
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
 
 module.exports = {
     cadastrarUsuario,
-    listarUsuarios
+    listarUsuarios,
+    obterUsuario,
+    excluirUsuario
 }
