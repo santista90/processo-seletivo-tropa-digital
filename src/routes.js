@@ -1,5 +1,6 @@
 const express = require('express');
 const usuarios = require('./controllers/usuarios');
+const enderecos = require('./controllers/enderecos');
 
 const routes = express();
 
@@ -14,5 +15,7 @@ routes.delete('/usuarios/:id_usuario', usuarios.excluirUsuario);
 // Atualizar Usuário
 routes.put('/usuarios/:id_usuario', usuarios.atualizarUsuario);
 
+// Cadastrar Endereço
+routes.post('/enderecos-usuario', enderecos.cadastrarEndereco);
 
 module.exports = routes;
