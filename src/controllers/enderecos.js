@@ -50,7 +50,27 @@ const listarEnderecos = async (req, res) => {
 }
 
 
+const obterEndereco = async (req, res) => {
+    const { id_endereco_usuario } = req.params;
+
+    try {
+
+        const endereco = await knex('endereco_usuarios').where({ id_endereco_usuario });
+
+        if(endereco.length === 0){
+            return res.status(400).json("Usuário não encontrado");
+        }
+
+        return res.status(200).json(endereco);
+
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
+
 module.exports = {
     cadastrarEndereco,
-    listarEnderecos
+    listarEnderecos,
+    obterEndereco
 }

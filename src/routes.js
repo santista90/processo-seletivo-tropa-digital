@@ -19,5 +19,7 @@ routes.put('/usuarios/:id_usuario', usuarios.atualizarUsuario);
 routes.post('/enderecos-usuario', enderecos.cadastrarEndereco);
 // Listar Endereços
 routes.get('/enderecos-usuario/:id_usuario', enderecos.listarEnderecos);
+// Listar Endereços
+routes.get('/enderecos-usuario/:id_endereco_usuario', enderecos.obterEndereco);
 
 module.exports = routes;
