@@ -19,11 +19,11 @@ routes.put('/usuarios/:id_usuario', usuarios.atualizarUsuario);
 routes.post('/enderecos-usuario', enderecos.cadastrarEndereco);
 // Listar Endereços
 routes.get('/enderecos-usuario/:id_usuario', enderecos.listarEnderecos);
-// Listar Endereços
+// Obter Endereços
 routes.get('/enderecos-usuario/:id_endereco_usuario', enderecos.obterEndereco);
 // Deletar Endereço
 routes.delete('/enderecos-usuario/:id_endereco_usuario', enderecos.excluirEndereco);
-// Atualizar Usuário
+// Atualizar Endereço
 routes.put('/enderecos-usuario/:id_endereco_usuario', enderecos.atualizarEndereco);
 
 module.exports = routes;
