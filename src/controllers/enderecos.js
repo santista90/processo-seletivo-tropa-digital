@@ -58,10 +58,28 @@ const obterEndereco = async (req, res) => {
         const endereco = await knex('endereco_usuarios').where({ id_endereco_usuario });
 
         if(endereco.length === 0){
-            return res.status(400).json("Usuário não encontrado");
+            return res.status(400).json("Endereço não encontrado");
         }
 
         return res.status(200).json(endereco);
+
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
+const excluirEndereco = async (req, res) => {
+    const { id_endereco_usuario } = req.params;
+
+    try {
+
+        const endereco = await knex('endereco_usuarios').where({ id_endereco_usuario }).del();
+
+        if(!endereco){
+            return res.status(400).json("Endereço não encontrado");
+        }
+
+        return res.status(200).json("Endereço Excluido com sucesso");
 
     } catch (error) {
         return res.status(400).json(error.message);
@@ -72,5 +90,6 @@ const obterEndereco = async (req, res) => {
 module.exports = {
     cadastrarEndereco,
     listarEnderecos,
-    obterEndereco
+    obterEndereco,
+    excluirEndereco
 }

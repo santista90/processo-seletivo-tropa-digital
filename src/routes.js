@@ -21,5 +21,7 @@ routes.post('/enderecos-usuario', enderecos.cadastrarEndereco);
 routes.get('/enderecos-usuario/:id_usuario', enderecos.listarEnderecos);
 // Listar Endereços
 routes.get('/enderecos-usuario/:id_endereco_usuario', enderecos.obterEndereco);
+// Deletar Endereço
+routes.delete('/enderecos-usuario/:id_endereco_usuario', enderecos.excluirEndereco);
 
 module.exports = routes;
