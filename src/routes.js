@@ -17,13 +17,13 @@ routes.put('/usuarios/:id_usuario', usuarios.atualizarUsuario);
 
 // Cadastrar Endereço
 routes.post('/enderecos-usuario', enderecos.cadastrarEndereco);
-// Listar Endereços
-routes.get('/enderecos-usuario/:id_usuario', enderecos.listarEnderecos);
-// Obter Endereços
-routes.get('/enderecos-usuario/:id_endereco_usuario', enderecos.obterEndereco);
 // Deletar Endereço
 routes.delete('/enderecos-usuario/:id_endereco_usuario', enderecos.excluirEndereco);
 // Atualizar Endereço
 routes.put('/enderecos-usuario/:id_endereco_usuario', enderecos.atualizarEndereco);
+// Listar Endereços
+routes.get('/enderecos-usuario/:id_usuario', enderecos.listarEnderecos);
+// Obter Endereços
+routes.get('/enderecos-usuario/:id_endereco_usuario', enderecos.obterEndereco);
 
 module.exports = routes;
