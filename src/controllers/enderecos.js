@@ -86,10 +86,44 @@ const excluirEndereco = async (req, res) => {
     }
 }
 
+const atualizarEndereco = async (req, res) => {
+    const { id_usuario, logradouro, numero, cidade, uf, cep, bairro, complemento } = req.body;
+    const { id_endereco_usuario } = req.params;
+
+    try {
+
+        const enderecoEncontrado = await knex('endereco_usuarios').where({ id_endereco_usuario }).first();
+
+        if (!enderecoEncontrado) {
+            return res.status(400).json("Endereço não existe");
+        }
+
+        const usuarioEncontrado = await knex('endereco_usuarios').where({ id_usuario });
+        
+        if(usuarioEncontrado.length === 0){
+            return res.status(400).json("Usuário não existe"); 
+        } else {
+            const enderecoAtualizado = await knex('endereco_usuarios').where({ id_endereco_usuario }).update({ id_usuario, logradouro, numero, cidade, uf, cep, bairro, complemento });
+
+            if (!enderecoAtualizado) {
+                return res.status(400).json("O Endereço não foi atualizado.");
+            }
+
+            return res.status(200).json("Ação Realizada com sucesso");            
+        }
+      
+    
+
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
 
 module.exports = {
     cadastrarEndereco,
     listarEnderecos,
     obterEndereco,
-    excluirEndereco
+    excluirEndereco,
+    atualizarEndereco
 }

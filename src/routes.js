@@ -23,5 +23,7 @@ routes.get('/enderecos-usuario/:id_usuario', enderecos.listarEnderecos);
 routes.get('/enderecos-usuario/:id_endereco_usuario', enderecos.obterEndereco);
 // Deletar Endereço
 routes.delete('/enderecos-usuario/:id_endereco_usuario', enderecos.excluirEndereco);
+// Atualizar Usuário
+routes.put('/enderecos-usuario/:id_endereco_usuario', enderecos.atualizarEndereco);
 
 module.exports = routes;
